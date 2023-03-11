@@ -1,7 +1,3 @@
-AirBnB Clone - The Console
-
-The console is the first segment of the AirBnB project at ALX Africa that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
-
 Contents
 
     Description
@@ -17,13 +13,13 @@ Contents
 Description
 
 This is the first phase of a four phase project, to create a basic clone of the AirBnB web app. In this first phase a basic console was created using the Cmd Python module, to manage the objects of the whole project, being able to implement the methods create, show, update, all, and destroy to the existing classes and subclasses.
-Environment 
+Environment computer
 
 The console was developed in Ubuntu 22.04LTS using python3 (version 3.10.6).
-Further information bookmark_tabs
+Further information
 
 For further information on python version, and documentation visit python.org.
-Requirements 
+Requirements
 
 Knowledge in python3, how to use a command line interpreter, a computer with Ubuntu 14.04, python3 and pep8 style corrector.
 Repo Contents
@@ -49,14 +45,13 @@ test_review.py 	unittests for review
 test_state.py 	unittests for state
 test_file_storage.py 	unittests for file_storage
 test_console.py 	unittests for console
-
 Installation
 
 Clone the repository and run the console.py
 
 $ git clone https://github.com/------/AirBnB_clone.git
 
-Usage
+Usage wrench
 Method 	Description
 create 	Creates object of given class
 show 	Prints the string representation of an instance based on the class name and id
