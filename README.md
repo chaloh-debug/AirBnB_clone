@@ -17,7 +17,7 @@ This is the first phase of a four phase project, to create a basic clone of the 
 ## Environment
 The console was developed in Ubuntu 22.04LTS using python3 (version 3.10.6).
 
-### Further information :bookmark_tabs:
+### Further information
 For further information on python version, and documentation visit [python.org](https://www.python.org/).
 
 ## Requirements
