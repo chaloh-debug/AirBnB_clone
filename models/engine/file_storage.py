@@ -2,20 +2,19 @@
 """Class that serializes instances to JSON file and vice versa """
 import json
 import os
-import re
 
 
 class FileStorage:
-    """Class that serializes and deserializes JSON objects"""
+    """ Class that serializes and deserializes JSON objects """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """ Returns __objeects dictionary"""
+        """ Returns the dictionary __objects """
         return FileStorage.__objects
 
     def new(self, obj):
-        """ Sets in __objects the obj with key <obj class name>.id """
+        """ Sets in __objects the obj with key <obj class name >.id """
         key = obj.__class__.__name__ + "." + obj.id
         FileStorage.__objects[key] = obj
 
@@ -26,11 +25,11 @@ class FileStorage:
         for key, value in FileStorage.__objects.items():
             dictionary[key] = value.to_dict()
 
-        with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
+        with open(FileStorage.__file_path, 'w') as f:
             json.dump(dictionary, f)
 
     def reload(self):
-        """deserializes the JSON file"""
+        """ Deserializes __objects from the JSON file """
         from models.base_model import BaseModel
         from models.user import User
         from models.place import Place
