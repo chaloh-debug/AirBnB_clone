@@ -63,5 +63,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(type(jsondict["created_at"]),
                             type(self.test_model1.__dict__["created_at"]))
 
+
 if __name__ == '__main__':
     unittest.main()

@@ -44,5 +44,6 @@ class TestReview(unittest.TestCase):
         m1u_saved = self.test_model1.updated_at
         self.assertFalse(m1u == m1u_saved)
 
+
 if __name__ == '__main__':
     unittest.main()
