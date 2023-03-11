@@ -5,8 +5,6 @@ attributes/methods for other classes.
 import uuid
 from datetime import datetime
 from models import storage
-import sys
-sys.path.append("/home/chaloh/AirBnB_clone")
 
 
 class BaseModel:
