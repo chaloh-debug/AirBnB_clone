@@ -14,7 +14,7 @@ import shlex
 
 
 class HBNBCommand(cmd.Cmd):
-    """Command processor"""
+    """Class to manage the console and all the commands built to the project"""
 
     prompt = "(hbnb) "
     l_classes = ['BaseModel', 'User', 'Amenity',
@@ -41,7 +41,9 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_count(self, cls_name):
-        """counts number of instances of a class"""
+        """ Retrieves the number of instances of a specific class
+        Usage: <class_name>.count()
+        """
         count = 0
         all_objs = storage.all()
         for k, v in all_objs.items():
@@ -51,7 +53,9 @@ class HBNBCommand(cmd.Cmd):
         print(count)
 
     def do_create(self, type_model):
-        """ Creates an instance according to a given class """
+        """ Creates new elements
+        Usage: create <class_name> or <class_name>.create()
+        """
 
         if not type_model:
             print("** class name missing **")
@@ -66,7 +70,9 @@ class HBNBCommand(cmd.Cmd):
             my_model.save()
 
     def do_show(self, arg):
-        """ Shows string representation of an instance passed """
+        """ Shows an element by id_number
+        Usage: show <class_name> <id> or <class_name>.show("<id>")
+        """
 
         if not arg:
             print("** class name missing **")
@@ -89,7 +95,9 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_destroy(self, arg):
-        """ Deletes an instance passed """
+        """ Deletes elements in storage
+        Usage: destroy <class_name> <id> or <class_name>.destroy("<id>")
+        """
 
         if not arg:
             print("** class name missing **")
@@ -114,7 +122,9 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, arg):
-        """ Prints string represention of all instances of a given class """
+        """ Prints all elements in storage by class name
+         Usage: all or all <class_name> or <class_name>.all()
+        """
 
         if not arg:
             print("** class name missing **")
@@ -134,7 +144,10 @@ class HBNBCommand(cmd.Cmd):
             print(list_instances)
 
     def do_update(self, arg):
-        """ Updates an instance based on the class name and id """
+        """ Updates info in storage
+        Usage: update <class_name> <id> <attribute_name> <attribute_value>
+        or <class_name>.update("<id>", "<attribute_name>", "<attribute_value>")
+        """
 
         if not arg:
             print("** class name missing **")
@@ -167,11 +180,13 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_quit(self, line):
-        """ Quit command to exit the command interpreter """
+        """ Quits the console
+        Usage: quit """
         return True
 
     def do_EOF(self, line):
-        """ EOF command to exit the command interpreter """
+        """ Quits with new line <end of file>
+        Usage: Ctrl + d """
         return True
 
 

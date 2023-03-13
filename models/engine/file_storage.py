@@ -1,11 +1,29 @@
 #!/usr/bin/python3
-"""Class that serializes instances to JSON file and vice versa """
+"""This module contains a base class called 'FileStorage' that defines
+the process that serializes and deserializes to JSON
+file_storage module manages data stored in file.json
+and manages CRUD operation
+"""
 import json
 import os
+import re
 
 
 class FileStorage:
-    """ Class that serializes and deserializes JSON objects """
+    """ An abstracted file storage engine
+    Private class attributes:
+        __file_path: string - path to the JSON file (ex: file.json)
+        __objects: dictionary - empty but will store all objects by
+        class name.id
+    Public instance methods:
+        all(self): returns the dictionary __objects
+        new(self, obj): sets in __objects the obj with
+        key <obj class name>.id save(self): serializes
+        __objects to the JSON file (path: __file_path)
+        reload(self): deserializes the JSON file to __objects
+        (only if the JSON file (__file_path) exists otherwise
+        , do nothing.
+    """
     __file_path = "file.json"
     __objects = {}
 
@@ -14,12 +32,16 @@ class FileStorage:
         return FileStorage.__objects
 
     def new(self, obj):
-        """ Sets in __objects the obj with key <obj class name >.id """
+        """Creates a new instance of a specific class and
+        saves it into the file storage
+        """
         key = obj.__class__.__name__ + "." + obj.id
         FileStorage.__objects[key] = obj
 
     def save(self):
-        """ Serializes __objects to the JSON file """
+        """Saves the instances of all classes into a
+        .json file using the json string format
+        """
         dictionary = {}
 
         for key, value in FileStorage.__objects.items():
@@ -29,7 +51,9 @@ class FileStorage:
             json.dump(dictionary, f)
 
     def reload(self):
-        """ Deserializes __objects from the JSON file """
+        """Deserializes the JSON file to __objects (only if
+        the JSON file (__file_path) exists ; otherwise, do nothing.
+        """
         from models.base_model import BaseModel
         from models.user import User
         from models.place import Place
